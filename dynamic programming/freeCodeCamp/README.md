@@ -88,9 +88,13 @@ The second problem has the following instructions:
 
 With the instructions we can know that the traveler can move only in the X and Y axis. The movement is restricted by a down and right movement. The starting point is [0][0] with the final point in [m-1][n-1], which is the botton-right corner of the matrix.
 
-![Grid Traveler]()
+![Grid Traveler](/dynamic%20programming/freeCodeCamp/resources/gridTraveler.png)
+
+As the previous problem, the Traditional Algorithm tends to be represented as a binary tree since there are two possible movements (down or right). In this case, the return end cases are when the coordenates are [1, 1] since the space of the board is already reduced, or, when the coordinates contain a 0 since the matrix can't be 0 in either dimension.
 
 ### Space and Time Complexity
+
+In this excersize, we got two input values (m, n), meaning than instead of being O(2^n) for the Traditional Algorithm, we got to take in consideration the value of m. This means, that the time complexity for the Traditional Algorithm is going to be O(2^n+m). For the Memoization Algorithm, we store the calculate values. Since we already store the calculation, we can represent the values as m * n possible combinations.
 
 <table>
 <tr>
@@ -100,22 +104,26 @@ With the instructions we can know that the traveler can move only in the X and Y
 
 <tr><td>
 
-| Field | Value  |
-| ----- | ------ |
-| Time  | O(2^n) |
-| Space | O(n)   |
+| Field | Value    |
+| ----- | ------   |
+| Time  | O(2^n+m) |
+| Space | O(n+m)   |
 
 </td><td>
 
-| Field | Value |
-| ----- | ----- |
-| Time  | O(n)  |
-| Space | O(n)  |
+| Field | Value   |
+| ----- | -----   |
+| Time  | O(n*m)  |
+| Space | O(n+m)  |
 
 </td></tr> 
 </table>
 
+For space complexity, we know that the depth of the three is defined by the values of m and n. With this information, we can conclude that the space complexity of both cases can be represented as (n + m).
+
 ### Execution Results
+
+The following table contains the comparisson between the execution time of both algorithms. As can observe, the execution time is clearly significant between both algorithms. While for the case of (16, 16), the Traditional Algorithm takes almost 3 seconds, the Memoization one takes less than 1 ms.
 
 <table>
 <tr>
@@ -145,3 +153,5 @@ With the instructions we can know that the traveler can move only in the X and Y
 
 </td></tr> 
 </table>
+
+_Note: Each value is the average of 5 execution time results_
